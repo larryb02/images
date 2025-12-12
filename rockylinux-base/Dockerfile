@@ -15,7 +15,9 @@ USER devuser
 
 RUN cat << 'EOF' >> ~/.bashrc 
     if [ ! -e /usr/share/bash-competion/completions/git ]; then
-            curl -fsSL https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-completion.bash -o /usr/share/bash-completion/completions/git
+            mkdir -p ~/bash-completion/completions
+            curl -fsSL https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-completion.bash -o ~/bash-completion/completions/git
+            source ~/bash-completion/completions/git
     fi
     curl -fsSL https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-prompt.sh -o ~/git-prompt.sh
     source /usr/share/bash-completion/completions/git
