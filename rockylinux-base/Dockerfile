@@ -11,7 +11,7 @@ ARG GID=1000
 RUN groupadd -g $GID devgroup \
     && useradd -m -u $UID -g $GID devuser
 
-    USER devuser
+USER devuser
 
 RUN cat << 'EOF' >> ~/.bashrc 
     if [ ! -e /usr/share/bash-competion/completions/git ]; then
